@@ -20,6 +20,8 @@ void copyArray(int *src, int *dst, int n) {
     }
 }
 
+ 
+
 void insertionSort(int *arr, int n, int showSteps) {
     printf("Сортировка вставкой\n");
     int comparisons = 0, swaps = 0; 
@@ -166,9 +168,11 @@ int main()
     int *randomArr = (int *)malloc(n * sizeof(int));
     int *sortedArr = (int *)malloc(n * sizeof(int));
     int *reverseArr = (int *)malloc(n * sizeof(int));
-    generateArrays(randomArr, sortedArr, reverseArr, n); 
+    int *arr2 = (int *)malloc(n * sizeof(int));
+    generateArrays(randomArr, sortedArr, reverseArr, n);
+    copyArray(randomArr, arr2, n);
     insertionSort(randomArr, n, 1); 
-    bubbleSort(randomArr, n, 1);
+    bubbleSort(arr2, n, 1);
     selectionSort(randomArr, n, 1);
 
 }
