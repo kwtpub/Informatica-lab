@@ -3,6 +3,18 @@
 #include <time.h>
 #include "untils/untils.h"
 
+
+
+void bubbleSort(int *arr, int n, int showSteps) {
+    int i,j,temp, swapped;
+    if(showSteps) {
+        printf("Исходный массив: ");
+        for(i = 0)
+    }
+}
+
+
+
 int main()
 {
     srand(time(NULL)); // Создание сида рандомной генерации
