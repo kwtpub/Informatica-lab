@@ -3,6 +3,9 @@
 #include <time.h>
 
 
+
+
+
 void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
     for (int i = 0; i < n; i++) {
         randomArr[i] = rand() % 1000;
@@ -11,6 +14,11 @@ void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
     }
 }
 
+void copyArray(int *src, int *dst, int n) {
+    for (int i = 0; i < n; i++) {
+        dst[i] = src[i];
+    }
+}
 
 void insertionSort(int *arr, int n, int showSteps) {
     printf("Сортировка вставкой\n");
@@ -129,11 +137,6 @@ int main()
     insertionSort(arr1, n, 1);
     bubbleSort(arr2, n, 1);
     
-    free(randomArr);
-    free(sortedArr);
-    free(reverseArr);
-    free(arr1);
-    free(arr2);
     return 0;
 
 }
