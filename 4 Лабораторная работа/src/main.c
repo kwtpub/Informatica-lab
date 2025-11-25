@@ -18,7 +18,7 @@ void insertionSort(int *arr, int n, int showSteps) {
     int j, key;
     
     if (showSteps) {
-        printf("    Исходный массив: ");
+        printf("\tИсходный массив: ");
         for (int i = 0; i < n; i++) {
             printf("%d ", arr[i]);
         }
@@ -40,21 +40,21 @@ void insertionSort(int *arr, int n, int showSteps) {
         }
         arr[j + 1] = key;
         if (showSteps) {
-            printf("    Шаг %d: ", i);
+            printf("\tШаг %d: ", i);
             for (j = 0; j < n; j++) printf("%d ", arr[j]);
             printf("\n");
         }
     }
     
     if (showSteps) {
-        printf("    Отсортированный массив: ");
+        printf("\tОтсортированный массив: ");
         for (int i = 0; i < n; i++) {
             printf("%d ", arr[i]);
         }
         printf("\n\n");
     }
-    printf("    Количество сравнений: %d\n", comparisons);
-    printf("    Количество перестановок: %d\n", swaps);
+    printf("\tКоличество сравнений: %d\n", comparisons);
+    printf("\tКоличество перестановок: %d\n", swaps);
 }
 
 
@@ -114,5 +114,6 @@ int main()
     int *reverseArr = (int *)malloc(n * sizeof(int));
     generateArrays(randomArr, sortedArr, reverseArr, n); 
     insertionSort(randomArr, n, 1); 
+    bubbleSort(randomArr, n, 1);
 
 }
