@@ -5,7 +5,7 @@
 
 
 
-
+// Функция для генерации массивов
 void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
     for (int i = 0; i < n; i++) {
         randomArr[i] = rand() % 1000;
@@ -13,33 +13,34 @@ void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
         reverseArr[i] = n - i;
     }
 }
-
+// Функция для копирования массива
 void copyArray(int *src, int *dst, int n) {
     for (int i = 0; i < n; i++) {
         dst[i] = src[i];
     }
 }
 
+// Функция для сортировки вставкой
 void insertionSort(int *arry, int n, int showSteps) {
     int *arr = (int *)malloc(n * sizeof(int));
-    copyArray(arry, arr, n);
+    copyArray(arry, arr, n); // копирование массива
     printf("Сортировка вставкой\n");
-    int comparisons = 0, swaps = 0; 
-    int j, key;
-    
-    if (showSteps) {
+    int comparisons = 0, swaps = 0;  // счетчики сравнений и перестановок
+    int j, key; // переменные для циклов и ключа
+    // если showSteps = 1, то выводим исходный массив
+    if (showSteps) { 
         printf("\tИсходный массив: ");
         for (int i = 0; i < n; i++) {
             printf("%d ", arr[i]);
         }
         printf("\n\n");
     }
-    
+    // основной цикл сортировки
     for (int i = 1; i < n; i++) {
         key = arr[i];
         j = i - 1;
         while (j >= 0) {
-            comparisons++;
+            comparisons++; 
             if (arr[j] > key) {
                 arr[j + 1] = arr[j];
                 swaps++;
@@ -49,13 +50,14 @@ void insertionSort(int *arry, int n, int showSteps) {
             }
         }
         arr[j + 1] = key;
-        if (showSteps) {
+        // если showSteps = 1, то выводим шаги сортировки
+        if (showSteps) { 
             printf("\tШаг %d: ", i);
             for (j = 0; j < n; j++) printf("%d ", arr[j]);
             printf("\n");
         }
     }
-    
+    // если showSteps = 1, то выводим отсортированный массив
     if (showSteps) {
         printf("\tОтсортированный массив: ");
         for (int i = 0; i < n; i++) {
@@ -174,7 +176,7 @@ int main()
     int *randomArr = (int *)malloc(n * sizeof(int));
     int *sortedArr = (int *)malloc(n * sizeof(int));
     int *reverseArr = (int *)malloc(n * sizeof(int));
-    // Создание Массивов
+    // Заполнение Массивов
     generateArrays(randomArr, sortedArr, reverseArr, n);
     
     insertionSort(randomArr, n, 1); 
