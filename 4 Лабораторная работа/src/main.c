@@ -174,11 +174,11 @@ int main()
     int *randomArr = (int *)malloc(n * sizeof(int));
     int *sortedArr = (int *)malloc(n * sizeof(int));
     int *reverseArr = (int *)malloc(n * sizeof(int));
-    int *arr2 = (int *)malloc(n * sizeof(int));
+    // Создание Массивов
     generateArrays(randomArr, sortedArr, reverseArr, n);
-    copyArray(randomArr, arr2, n);
+    
     insertionSort(randomArr, n, 1); 
-    bubbleSort(arr2, n, 1);
+    bubbleSort(randomArr, n, 1);
     selectionSort(randomArr, n, 1);
 
 }
