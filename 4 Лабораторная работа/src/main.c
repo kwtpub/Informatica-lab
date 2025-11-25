@@ -179,8 +179,9 @@ int main()
     // Заполнение Массивов
     generateArrays(randomArr, sortedArr, reverseArr, n);
     
-    insertionSort(randomArr, n, 1); 
-    bubbleSort(randomArr, n, 1);
-    selectionSort(randomArr, n, 1);
+    insertionSort(randomArr, n, 0); 
+    bubbleSort(randomArr, n, 0);
+    selectionSort(randomArr, n, 0);
 
+    
 }
