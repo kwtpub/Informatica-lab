@@ -36,5 +36,9 @@ clean:
 # Пересборка
 rebuild: clean $(TARGET)
 
-.PHONY: clean rebuild quick
+# Сборка и запуск программы
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: clean rebuild quick run
 
