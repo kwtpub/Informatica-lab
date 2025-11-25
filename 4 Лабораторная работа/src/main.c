@@ -20,7 +20,9 @@ void copyArray(int *src, int *dst, int n) {
     }
 }
 
-void insertionSort(int *arr, int n, int showSteps) {
+void insertionSort(int *arry, int n, int showSteps) {
+    int *arr = (int *)malloc(n * sizeof(int));
+    copyArray(arry, arr, n);
     printf("Сортировка вставкой\n");
     int comparisons = 0, swaps = 0; 
     int j, key;
@@ -66,7 +68,9 @@ void insertionSort(int *arr, int n, int showSteps) {
 }
 
 
-void bubbleSort(int *arr, int n, int showSteps) {
+void bubbleSort(int *arry, int n, int showSteps) {
+    int *arr = (int *)malloc(n * sizeof(int));
+    copyArray(arry, arr, n);
     int i,j,buf;
     int comparisons = 0, swaps = 0;
     printf("Сортировка пузырьком\n");
@@ -104,7 +108,9 @@ void bubbleSort(int *arr, int n, int showSteps) {
     printf("\tКоличество перестановок: %d\n", swaps);
 }
 
-void selectionSort(int *arr, int n, int showSteps) {
+void selectionSort(int *arry, int n, int showSteps) {
+    int *arr = (int *)malloc(n * sizeof(int));
+    copyArray(arry, arr, n);
     printf("Сортировка выбором \n");
     int temp;
     int comparisons = 0, swaps = 0;
