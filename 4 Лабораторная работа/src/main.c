@@ -58,13 +58,13 @@ void insertionSort(int *arr, int n, int showSteps) {
 }
 
 
-void bubbleSort(int *arr, int n, int showSteps) {
-    int i,j,temp, swapped;
-    if(showSteps) {
-        printf("Исходный массив: ");
-        for(i = 0)
-    }
-}
+// void bubbleSort(int *arr, int n, int showSteps) {
+//     int i,j,temp, swapped;
+//     if(showSteps) {
+//         printf("Исходный массив: ");
+//         for(i = 0)
+//     }
+// }
 
 
 
