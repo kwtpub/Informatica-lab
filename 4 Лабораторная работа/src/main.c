@@ -67,6 +67,7 @@ void insertionSort(int *arry, int n, int showSteps) {
     }
     printf("\tКоличество сравнений: %d\n", comparisons);
     printf("\tКоличество перестановок: %d\n", swaps);
+    free(arr);
 }
 
 
@@ -110,6 +111,7 @@ void bubbleSort(int *arry, int n, int showSteps) { // сортировка пу�
     }
     printf("\tКоличество сравнений: %d\n", comparisons);
     printf("\tКоличество перестановок: %d\n", swaps);
+    free(arr);
 }
 
 void selectionSort(int *arry, int n, int showSteps) {
@@ -158,6 +160,7 @@ void selectionSort(int *arry, int n, int showSteps) {
     }
     printf("\tКоличество сравнений: %d\n", comparisons);
     printf("\tКоличество перестановок: %d\n", swaps);
+    free(arr);
 }
 
 int main()
