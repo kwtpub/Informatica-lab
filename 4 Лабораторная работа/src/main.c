@@ -74,7 +74,6 @@ void bubbleSort(int *arr, int n, int showSteps) {
         printf("\tИсходный массив: ");
         for(i = 0; i < n; i++)
             printf(" %d", arr[i]);
-        printf("\n");
         printf("\n\n");
     }
 
@@ -97,7 +96,7 @@ void bubbleSort(int *arr, int n, int showSteps) {
     }
 
     if (showSteps) {
-        printf("\n\n");
+        printf("\n");
         printf("\tОтсортированный массив: ");
         for (i = 0; i < n; i++) printf("%d ", arr[i]);
         printf("\n");
