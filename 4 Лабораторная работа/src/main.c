@@ -68,12 +68,13 @@ void insertionSort(int *arry, int n, int showSteps) {
 }
 
 
-void bubbleSort(int *arry, int n, int showSteps) {
-    int *arr = (int *)malloc(n * sizeof(int));
-    copyArray(arry, arr, n);
-    int i,j,buf;
-    int comparisons = 0, swaps = 0;
+void bubbleSort(int *arry, int n, int showSteps) { // сортировка пузырьком
+    int *arr = (int *)malloc(n * sizeof(int)); // создание копии массива
+    copyArray(arry, arr, n); // копирование массива
+    int i,j,buf; // переменные для циклов и буфера
+    int comparisons = 0, swaps = 0; // счетчики сравнений и перестановок
     printf("Сортировка пузырьком\n");
+    // если showSteps = 1, то выводим исходный массив
     if(showSteps) {
         printf("\tИсходный массив: ");
         for(i = 0; i < n; i++)
@@ -91,6 +92,7 @@ void bubbleSort(int *arry, int n, int showSteps) {
                 arr[j] = buf;
             }
         }
+        // если showSteps = 1, то выводим шаги сортировки
         if(showSteps) {
             printf("\tШаг %d: ", i + 1);
             for(j = 0; j < n; j++)
@@ -98,7 +100,7 @@ void bubbleSort(int *arry, int n, int showSteps) {
             printf("\n");
         }
     }
-
+    // если showSteps = 1, то выводим отсортированный массив
     if (showSteps) {
         printf("\tОтсортированный массив: ");
         for (i = 0; i < n; i++) printf("%d ", arr[i]);
