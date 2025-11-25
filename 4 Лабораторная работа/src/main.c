@@ -57,7 +57,7 @@ void insertionSort(int *arry, int n, int showSteps) {
             printf("\n");
         }
     }
-    // если showSteps = 1, то выводим отсортированный массив
+    
     if (showSteps) {
         printf("\tОтсортированный массив: ");
         for (int i = 0; i < n; i++) {
@@ -179,9 +179,8 @@ int main()
     // Заполнение Массивов
     generateArrays(randomArr, sortedArr, reverseArr, n);
     
-    insertionSort(randomArr, n, 0); 
-    bubbleSort(randomArr, n, 0);
-    selectionSort(randomArr, n, 0);
+    insertionSort(randomArr, n, 1); 
+    bubbleSort(randomArr, n, 1);
+    selectionSort(randomArr, n, 1);
 
-    
 }
