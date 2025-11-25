@@ -96,10 +96,9 @@ void bubbleSort(int *arr, int n, int showSteps) {
     }
 
     if (showSteps) {
-        printf("\n");
         printf("\tОтсортированный массив: ");
         for (i = 0; i < n; i++) printf("%d ", arr[i]);
-        printf("\n");
+        printf("\n\n");
     }
     printf("\tКоличество сравнений: %d\n", comparisons);
     printf("\tКоличество перестановок: %d\n", swaps);
