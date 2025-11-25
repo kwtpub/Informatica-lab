@@ -67,46 +67,86 @@ void insertionSort(int *arr, int n, int showSteps) {
 
 
 void bubbleSort(int *arr, int n, int showSteps) {
-    int i,j,buf;
-    int comparisons = 0, swaps = 0;
+    int i,j,buf, swapped, counter1 = 0, counter2 = 0;
     printf("Сортировка пузырьком\n");
     if(showSteps) {
         printf("\tИсходный массив: ");
         for(i = 0; i < n; i++)
             printf(" %d", arr[i]);
         printf("\n");
-        printf("\n\n");
     }
 
     for (i = 0; i < n - 1; i++) {
+        swapped = 0;
         for (j = 0; j < n - i - 1; j++) {
-            comparisons++;
+            counter1++;
             if(arr[j] > arr[j+1]) {
-                swaps++;
+                counter2++;
                 buf = arr[j + 1];
                 arr[j + 1] = arr[j];
                 arr[j] = buf;
             }
-        }
-        if(showSteps) {
-            printf("\tШаг %d: ", i + 1);
-            for(j = 0; j < n; j++)
-                printf("%d ", arr[j]);
-            printf("\n");
+            if(showSteps) {
+                printf("\tШаг %d: ", i + 1);
+                for(j = 0; j < n; j++)
+                    printf("%d ", arr[j]);
+                printf("\n");
+            }
         }
     }
 
     if (showSteps) {
-        printf("\n\n");
         printf("\tОтсортированный массив: ");
         for (i = 0; i < n; i++) printf("%d ", arr[i]);
         printf("\n");
     }
+}
+
+void selectionSort(int *arr, int n, int showSteps) {
+    printf("Сортировка выбором \n");
+    int temp;
+    int comparisons = 0, swaps = 0;
+    if (showSteps) {
+        printf("\tИсходный массив: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+    }
+    
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            comparisons++;
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex != i) {
+            temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+            swaps++;
+        }
+        if (showSteps) {
+            printf("\tШаг %d: ", i + 1);
+            for (int j = 0; j < n; j++) {
+                printf("%d ", arr[j]);
+            }
+            printf("\n");
+        }
+    }
+    
+    if (showSteps) {
+        printf("\tОтсортированный массив: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n\n");
+    }
     printf("\tКоличество сравнений: %d\n", comparisons);
     printf("\tКоличество перестановок: %d\n", swaps);
 }
-
-
 
 int main()
 {
@@ -124,19 +164,9 @@ int main()
     int *randomArr = (int *)malloc(n * sizeof(int));
     int *sortedArr = (int *)malloc(n * sizeof(int));
     int *reverseArr = (int *)malloc(n * sizeof(int));
-    generateArrays(randomArr, sortedArr, reverseArr, n);
-    
-    // Копии для сортировок
-    int *arr1 = (int *)malloc(n * sizeof(int));
-    int *arr2 = (int *)malloc(n * sizeof(int));
-    for (int i = 0; i < n; i++) {
-        arr1[i] = randomArr[i];
-        arr2[i] = randomArr[i];
-    }
-    
-    insertionSort(arr1, n, 1);
-    bubbleSort(arr2, n, 1);
-    
-    return 0;
+    generateArrays(randomArr, sortedArr, reverseArr, n); 
+    insertionSort(randomArr, n, 1); 
+    bubbleSort(randomArr, n, 1);
+    selectionSort(randomArr, n, 1);
 
 }
