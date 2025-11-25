@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "untils/untils.h"
 
 int main()
 {
-    srand(time(NULL)); //Создание сида рандомной генерации
-
+    srand(time(NULL)); // Создание сида рандомной генерации
     int n;
     printf("Введите n: "); // Ввод n
     if (scanf("%d\n", &n) != 1 || n <= 0)
