@@ -4,8 +4,7 @@
 
 
 void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
-    int i;
-    for (i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         randomArr[i] = rand() % 1000;
         sortedArr[i] = i;
         reverseArr[i] = n - i;
@@ -13,8 +12,51 @@ void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
 }
 
 
+void insertionSort(int *arr, int n, int showSteps) {
+    printf("Сортировка вставкой\n");
+    int comparisons = 0, swaps = 0; 
+    int j, key;
+    
+    if (showSteps) {
+        printf("    Исходный массив: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n\n");
+    }
+    
+    for (int i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+        while (j >= 0) {
+            comparisons++;
+            if (arr[j] > key) {
+                arr[j + 1] = arr[j];
+                swaps++;
+                j--;
+            } else {
+                break;
+            }
+        }
+        arr[j + 1] = key;
+        if (showSteps) {
+            printf("    Шаг %d: ", i);
+            for (j = 0; j < n; j++) printf("%d ", arr[j]);
+            printf("\n");
+        }
+    }
+    
+    if (showSteps) {
+        printf("    Отсортированный массив: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n\n");
+    }
+    printf("    Количество сравнений: %d\n", comparisons);
+    printf("    Количество перестановок: %d\n", swaps);
+}
 
-// Пузырьковая сортировка
 
 void bubbleSort(int *arr, int n, int showSteps) {
     int i,j,buf, swapped, counter1 = 0, counter2 = 0;
@@ -64,11 +106,13 @@ int main()
         printf("\nОшибка: размерность должна быть положительным числом!\n"); //Обработка ошибки ввода
         return 1;
     }
+
+
     // Создание массивов
     int *randomArr = (int *)malloc(n * sizeof(int));
     int *sortedArr = (int *)malloc(n * sizeof(int));
     int *reverseArr = (int *)malloc(n * sizeof(int));
-    generateArrays(randomArr, sortedArr, reverseArr, n);
-    bubbleSort(randomArr, n, 1);
-    return 0;
+    generateArrays(randomArr, sortedArr, reverseArr, n); 
+    insertionSort(randomArr, n, 1); 
+
 }
