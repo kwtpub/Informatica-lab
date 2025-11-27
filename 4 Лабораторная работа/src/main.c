@@ -163,6 +163,36 @@ void selectionSort(int *arry, int n, int showSteps) {
     free(arr);
 }
 
+void printArrays(int n, int ShowsSteps){
+    // Создание массивов
+    int *randomArr = (int *)malloc(n * sizeof(int));
+    int *sortedArr = (int *)malloc(n * sizeof(int));
+    int *reverseArr = (int *)malloc(n * sizeof(int));
+    // Заполнение Массивов
+    generateArrays(randomArr, sortedArr, reverseArr, n);
+
+    printf("Сортировка рандомного массива: \n");
+    insertionSort(randomArr, n, ShowsSteps); 
+    bubbleSort(randomArr, n, ShowsSteps);
+    selectionSort(randomArr, n, ShowsSteps);
+    printf("\n---------------------------------------\n");
+
+    printf("Сортировка отсортированного массива: \n");
+    insertionSort(sortedArr, n, ShowsSteps); 
+    bubbleSort(sortedArr, n, ShowsSteps);
+    selectionSort(sortedArr, n, ShowsSteps);
+    printf("\n---------------------------------------\n");
+
+    printf("Сортировка обратного массива: \n");
+    insertionSort(reverseArr, n, ShowsSteps); 
+    bubbleSort(reverseArr, n, ShowsSteps);
+    selectionSort(reverseArr, n, ShowsSteps);
+    printf("\n=======================================\n");
+    free(randomArr);
+    free(sortedArr);
+    free(reverseArr);
+}
+
 int main()
 {
     srand(time(NULL)); // Создание сида рандомной генерации
@@ -175,15 +205,15 @@ int main()
     }
 
 
-    // Создание массивов
-    int *randomArr = (int *)malloc(n * sizeof(int));
-    int *sortedArr = (int *)malloc(n * sizeof(int));
-    int *reverseArr = (int *)malloc(n * sizeof(int));
-    // Заполнение Массивов
-    generateArrays(randomArr, sortedArr, reverseArr, n);
     
-    insertionSort(randomArr, n, 1); 
-    bubbleSort(randomArr, n, 1);
-    selectionSort(randomArr, n, 1);
-
+    // Заполнение Массивов
+    printArrays(n, 0);
+    printf("Сортировка для массива размером 10\n");
+    printArrays(10, 1);
+    printf("Сортировка для массива размером 100\n");
+    printArrays(100, 0);
+    printf("Сортировка для массива размером 1000\n");
+    printArrays(1000, 0);
+    printf("Сортировка для массива размером 10000\n");
+    printArrays(10000, 0);
 }
