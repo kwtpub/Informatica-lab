@@ -191,6 +191,7 @@ void TestAllSorts(int n, int ShowsSteps){
     free(randomArr);
     free(sortedArr);
     free(reverseArr);
+    printf("Сортировка для массива размером %d", n)
 }
 
 int main()
@@ -205,12 +206,8 @@ int main()
     }
     // Заполнение Массивов
     TestAllSorts(n, 0);
-    printf("Сортировка для массива размером 10\n");
     TestAllSorts(10, 1);
-    printf("Сортировка для массива размером 100\n");
     TestAllSorts(100, 0);
-    printf("Сортировка для массива размером 1000\n");
     TestAllSorts(1000, 0);
-    printf("Сортировка для массива размером 10000\n");
     TestAllSorts(10000, 0);
 }
