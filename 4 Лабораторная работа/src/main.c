@@ -191,7 +191,7 @@ void TestAllSorts(int n, int ShowsSteps){
     free(randomArr);
     free(sortedArr);
     free(reverseArr);
-    printf("Сортировка для массива размером %d", n)
+    printf("Сортировка для массива размером %d", n);
 }
 
 int main()
