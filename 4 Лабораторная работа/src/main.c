@@ -163,7 +163,7 @@ void selectionSort(int *arry, int n, int showSteps) {
     free(arr);
 }
 
-void printArrays(int n, int ShowsSteps){
+void TestAllSorts(int n, int ShowsSteps){
     // Создание массивов
     int *randomArr = (int *)malloc(n * sizeof(int));
     int *sortedArr = (int *)malloc(n * sizeof(int));
@@ -204,13 +204,13 @@ int main()
         return 1;
     }
     // Заполнение Массивов
-    printArrays(n, 0);
+    TestAllSorts(n, 0);
     printf("Сортировка для массива размером 10\n");
-    printArrays(10, 1);
+    TestAllSorts(10, 1);
     printf("Сортировка для массива размером 100\n");
-    printArrays(100, 0);
+    TestAllSorts(100, 0);
     printf("Сортировка для массива размером 1000\n");
-    printArrays(1000, 0);
+    TestAllSorts(1000, 0);
     printf("Сортировка для массива размером 10000\n");
-    printArrays(10000, 0);
+    TestAllSorts(10000, 0);
 }
