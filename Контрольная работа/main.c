@@ -28,7 +28,7 @@ printf("\n y = %d", y);
 
 printf("\n\n3) значение y = ++*p++;   p равно %p", p);
 y = ++*p++;
-printf("\n y = ???");
+printf("\n y = %d", y);
 
 printf("\n p = %p", p);
 printf("\n *p = %d", *p);
