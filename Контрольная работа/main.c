@@ -33,6 +33,30 @@ printf("\n y = ???");
 printf("\n p = %p", p);
 printf("\n *p = %d", *p);
 
+printf("\n\n4) значение y = *p;   p равно %p", p);
+y = *p;
+printf("\n y = %d", y);
+printf("\n p = %p", p);
+printf("\n *p = %d", *p);
+
+printf("\n\n5) значение y = *p--;   p равно %p", p);
+y = *p--;
+printf("\n y = %d", y);
+printf("\n p = %p", p);
+printf("\n *p = %d", *p);
+
+printf("\n\n6) значение y = *p++;   p равно %p", p);
+y = *p++;
+printf("\n y = %d", y);
+printf("\n p = %p", p);
+printf("\n *p = %d", *p);
+
+printf("\n\n7) значение y = --(*p);   p равно %p", p);
+y = --(*p);
+printf("\n y = %d", y);
+printf("\n p = %p", p);
+printf("\n *p = %d", *p);
+
 printf("\n\nАдреса и значения элементов массива:");
 for (int i = 0; i < 4; i++) {
     printf("\n &x[%d] = %p\t x[%d] = %d", i, &x[i], i, x[i]);
