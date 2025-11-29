@@ -164,6 +164,7 @@ void selectionSort(int *arry, int n, int showSteps) {
 }
 
 void TestAllSorts(int n, int ShowsSteps){
+    printf("\nСортировка для массива размером %d", n);
     // Создание массивов
     int *randomArr = (int *)malloc(n * sizeof(int));
     int *sortedArr = (int *)malloc(n * sizeof(int));
@@ -171,19 +172,19 @@ void TestAllSorts(int n, int ShowsSteps){
     // Заполнение Массивов
     generateArrays(randomArr, sortedArr, reverseArr, n);
 
-    printf("Сортировка рандомного массива: \n");
+    printf("\nСортировка рандомного массива: \n");
     insertionSort(randomArr, n, ShowsSteps); 
     bubbleSort(randomArr, n, ShowsSteps);
     selectionSort(randomArr, n, ShowsSteps);
     printf("\n---------------------------------------\n");
 
-    printf("Сортировка отсортированного массива: \n");
+    printf("\nСортировка отсортированного массива: \n");
     insertionSort(sortedArr, n, ShowsSteps); 
     bubbleSort(sortedArr, n, ShowsSteps);
     selectionSort(sortedArr, n, ShowsSteps);
     printf("\n---------------------------------------\n");
 
-    printf("Сортировка обратного массива: \n");
+    printf("\nСортировка обратного массива: \n");
     insertionSort(reverseArr, n, ShowsSteps); 
     bubbleSort(reverseArr, n, ShowsSteps);
     selectionSort(reverseArr, n, ShowsSteps);
@@ -191,7 +192,6 @@ void TestAllSorts(int n, int ShowsSteps){
     free(randomArr);
     free(sortedArr);
     free(reverseArr);
-    printf("Сортировка для массива размером %d", n);
 }
 
 int main()
