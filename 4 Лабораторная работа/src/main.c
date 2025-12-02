@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-
-
-
+ 
+ 
+ 
+ 
 // Функция для генерации массивов
-void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
+void generateArrays(int* randomArr, int* sortedArr, int* reverseArr, int n) {
     for (int i = 0; i < n; i++) {
         randomArr[i] = rand() % 1000;
         sortedArr[i] = i;
@@ -14,21 +14,21 @@ void generateArrays(int *randomArr, int *sortedArr, int *reverseArr, int n) {
     }
 }
 // Функция для копирования массива
-void copyArray(int *src, int *dst, int n) {
+void copyArray(int* src, int* dst, int n) {
     for (int i = 0; i < n; i++) {
         dst[i] = src[i];
     }
 }
-
+ 
 // Функция для сортировки вставкой
-void insertionSort(int *arry, int n, int showSteps) {
-    int *arr = (int *)malloc(n * sizeof(int));
+void insertionSort(int* arry, int n, int showSteps) {
+    int* arr = (int*)malloc(n * sizeof(int));
     copyArray(arry, arr, n); // копирование массива
     printf("Сортировка вставкой\n");
     int comparisons = 0, swaps = 0;  // счетчики сравнений и перестановок
     int j, key; // переменные для циклов и ключа
     // если showSteps = 1, то выводим исходный массив
-    if (showSteps) { 
+    if (showSteps) {
         printf("\tИсходный массив: ");
         for (int i = 0; i < n; i++) {
             printf("%d ", arr[i]);
@@ -40,24 +40,25 @@ void insertionSort(int *arry, int n, int showSteps) {
         key = arr[i];
         j = i - 1;
         while (j >= 0) {
-            comparisons++; 
+            comparisons++;
             if (arr[j] > key) {
                 arr[j + 1] = arr[j];
                 swaps++;
                 j--;
-            } else {
+            }
+            else {
                 break;
             }
         }
         arr[j + 1] = key;
         // если showSteps = 1, то выводим шаги сортировки
-        if (showSteps) { 
+        if (showSteps) {
             printf("\tШаг %d: ", i);
             for (j = 0; j < n; j++) printf("%d ", arr[j]);
             printf("\n");
         }
     }
-    
+ 
     if (showSteps) {
         printf("\tОтсортированный массив: ");
         for (int i = 0; i < n; i++) {
@@ -69,26 +70,26 @@ void insertionSort(int *arry, int n, int showSteps) {
     printf("\tКоличество перестановок: %d\n", swaps);
     free(arr);
 }
-
-
-void bubbleSort(int *arry, int n, int showSteps) { // сортировка пузырьком
-    int *arr = (int *)malloc(n * sizeof(int)); // создание копии массива
+ 
+ 
+void bubbleSort(int* arry, int n, int showSteps) { // сортировка пузырьком
+    int* arr = (int*)malloc(n * sizeof(int)); // создание копии массива
     copyArray(arry, arr, n); // копирование массива
-    int i,j,buf; // переменные для циклов и буфера
+    int i, j, buf; // переменные для циклов и буфера
     int comparisons = 0, swaps = 0; // счетчики сравнений и перестановок
     printf("Сортировка пузырьком\n");
     // если showSteps = 1, то выводим исходный массив
-    if(showSteps) {
+    if (showSteps) {
         printf("\tИсходный массив: ");
-        for(i = 0; i < n; i++)
+        for (i = 0; i < n; i++)
             printf(" %d", arr[i]);
         printf("\n\n");
     }
-
+ 
     for (i = 0; i < n - 1; i++) {
         for (j = 0; j < n - i - 1; j++) {
             comparisons++;
-            if(arr[j] > arr[j+1]) {
+            if (arr[j] > arr[j + 1]) {
                 swaps++;
                 buf = arr[j + 1];
                 arr[j + 1] = arr[j];
@@ -96,9 +97,9 @@ void bubbleSort(int *arry, int n, int showSteps) { // сортировка пу�
             }
         }
         // если showSteps = 1, то выводим шаги сортировки
-        if(showSteps) {
+        if (showSteps) {
             printf("\tШаг %d: ", i + 1);
-            for(j = 0; j < n; j++)
+            for (j = 0; j < n; j++)
                 printf("%d ", arr[j]);
             printf("\n");
         }
@@ -113,9 +114,9 @@ void bubbleSort(int *arry, int n, int showSteps) { // сортировка пу�
     printf("\tКоличество перестановок: %d\n", swaps);
     free(arr);
 }
-
-void selectionSort(int *arry, int n, int showSteps) {
-    int *arr = (int *)malloc(n * sizeof(int));
+ 
+void selectionSort(int* arry, int n, int showSteps) {
+    int* arr = (int*)malloc(n * sizeof(int));
     copyArray(arry, arr, n);
     printf("Сортировка выбором \n");
     int temp;
@@ -127,7 +128,7 @@ void selectionSort(int *arry, int n, int showSteps) {
         }
         printf("\n\n");
     }
-    
+ 
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
         for (int j = i + 1; j < n; j++) {
@@ -150,7 +151,7 @@ void selectionSort(int *arry, int n, int showSteps) {
             printf("\n");
         }
     }
-    
+ 
     if (showSteps) {
         printf("\tОтсортированный массив: ");
         for (int i = 0; i < n; i++) {
@@ -162,38 +163,38 @@ void selectionSort(int *arry, int n, int showSteps) {
     printf("\tКоличество перестановок: %d\n", swaps);
     free(arr);
 }
-
-void TestAllSorts(int n, int ShowsSteps){
+ 
+void TestAllSorts(int n, int ShowsSteps) {
+    printf("\nСортировка для массива размером %d\n", n);
     // Создание массивов
-    int *randomArr = (int *)malloc(n * sizeof(int));
-    int *sortedArr = (int *)malloc(n * sizeof(int));
-    int *reverseArr = (int *)malloc(n * sizeof(int));
+    int* randomArr = (int*)malloc(n * sizeof(int));
+    int* sortedArr = (int*)malloc(n * sizeof(int));
+    int* reverseArr = (int*)malloc(n * sizeof(int));
     // Заполнение Массивов
     generateArrays(randomArr, sortedArr, reverseArr, n);
-
+ 
     printf("Сортировка рандомного массива: \n");
-    insertionSort(randomArr, n, ShowsSteps); 
+    insertionSort(randomArr, n, ShowsSteps);
     bubbleSort(randomArr, n, ShowsSteps);
     selectionSort(randomArr, n, ShowsSteps);
     printf("\n---------------------------------------\n");
-
+ 
     printf("Сортировка отсортированного массива: \n");
-    insertionSort(sortedArr, n, ShowsSteps); 
+    insertionSort(sortedArr, n, ShowsSteps);
     bubbleSort(sortedArr, n, ShowsSteps);
     selectionSort(sortedArr, n, ShowsSteps);
     printf("\n---------------------------------------\n");
-
+ 
     printf("Сортировка обратного массива: \n");
-    insertionSort(reverseArr, n, ShowsSteps); 
+    insertionSort(reverseArr, n, ShowsSteps);
     bubbleSort(reverseArr, n, ShowsSteps);
     selectionSort(reverseArr, n, ShowsSteps);
     printf("\n=======================================\n");
     free(randomArr);
     free(sortedArr);
     free(reverseArr);
-    printf("Сортировка для массива размером %d", n);
 }
-
+ 
 int main()
 {
     srand(time(NULL)); // Создание сида рандомной генерации
